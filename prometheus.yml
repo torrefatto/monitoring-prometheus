@@ -12,7 +12,10 @@ rule_files:
 scrape_configs:
   - job_name: mimir
     static_configs:
-      - targets: ["mimir.monitoring.koyeb:8080"]
+      - targets:
+          - mimir-1.monitoring.koyeb:8080
+          - mimir-2.monitoring.koyeb:8080
+          - mimir-3.monitoring.koyeb:8080
   - job_name: blackbox # To get metrics about the exporter itself
     metrics_path: /metrics
     static_configs:
